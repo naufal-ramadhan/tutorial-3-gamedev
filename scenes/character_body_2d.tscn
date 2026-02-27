@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://8ifnfaxvyn58"]
+
+[ext_resource type="Script" uid="uid://ccnt6deyykprd" path="res://scenes/Player.gd" id="1_lj8jo"]
+[ext_resource type="Texture2D" uid="uid://ckavd12djpprg" path="res://assets/kenney_platformercharacters/PNG/Female/Poses/female_duck.png" id="2_t53lx"]
+[ext_resource type="Texture2D" uid="uid://cpp16i6ubi2qc" path="res://assets/kenney_platformercharacters/PNG/Female/Poses/female_fall.png" id="3_yi2kj"]
+[ext_resource type="Texture2D" uid="uid://dint54wgquwvl" path="res://assets/kenney_platformercharacters/PNG/Female/Poses/female_stand.png" id="4_cibgq"]
+[ext_resource type="Texture2D" uid="uid://dsdlgggvwlbt5" path="res://assets/kenney_platformercharacters/PNG/Female/Poses/female_jump.png" id="5_mfdas"]
+[ext_resource type="Texture2D" uid="uid://btcds8l8o3byi" path="res://assets/kenney_platformercharacters/PNG/Female/Poses/female_walk1.png" id="6_8nwgm"]
+[ext_resource type="Texture2D" uid="uid://4wq6uun8gmay" path="res://assets/kenney_platformercharacters/PNG/Female/Poses/female_walk2.png" id="7_7pl6r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
+size = Vector2(72, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x5gf8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_t53lx")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yi2kj")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_cibgq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_mfdas")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8nwgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7pl6r")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=539776255]
+script = ExtResource("1_lj8jo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=667386899]
+position = Vector2(-2, 12)
+shape = SubResource("RectangleShape2D_g2brh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2095163947]
+sprite_frames = SubResource("SpriteFrames_x5gf8")
+animation = &"walk"
